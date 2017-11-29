@@ -1,0 +1,158 @@
+* {
+    font-family: 'Gloria Hallelujah', cursive;
+    margin: 0;
+    padding: 0;
+    transition: 0.3s ease all;
+}
+
+body {
+    background: #303339;
+    height: calc(100vh - 1em);
+}
+
+nav,
+footer {
+    background-color: #222;
+    display: fixed;
+    color: white;
+    vertical-align: middle;
+    padding: 0.5em 1em;
+    left: 0;
+    right: 0;
+    position: fixed;
+    font-size: 0.75em;
+}
+
+nav {
+    top: 0;
+}
+
+footer {
+    bottom: 0;
+}
+
+.container {
+    position: fixed;
+    top: 2em;
+    width: calc(100vw - 2em);
+    height: calc(100vh - 6em);
+    margin: 1em;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 200px 1fr;
+}
+
+#left-column,
+#center-column {
+    padding: 0.5em 1em;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#left-column {
+    /* display: grid;
+    grid-gap: 0.5em;
+    grid-template-rows: 1fr 1fr 1fr; */
+}
+
+input {
+    border-radius: 4px;
+    border: 0;
+    font-size: 1em;
+    padding: 1em;
+    width: 100%;
+    margin-bottom: 0.5em;
+}
+
+input:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+#button1 {
+    z-index: 1;
+    background: limegreen;
+}
+
+.activebutton1 {
+    /* border-radius: 100% 100% 0% 0%; */
+    font-size: 0.7em;
+}
+
+#button2,
+#button3 {
+    background: cornflowerblue;
+    opacity: 0;
+}
+
+#button3 {
+    /* border-radius: 0% 0% 100% 100%; */
+}
+
+#sec-buttons {
+    display: block;
+    /* opacity: 0; */
+    /* background-color: transparent;
+    transform: rotate(0deg) scale(0.2); */
+    /* width: 0%; */
+}
+
+.slideIn1 {
+    animation: slideIn1 1s forwards;
+}
+
+.slideIn2 {
+    animation: slideIn2 1s forwards;
+}
+
+.slideOut {
+    animation: slideOut 1s forwards;
+}
+
+@keyframes slideIn1 {
+    0% {
+        background-color: transparent;
+        transform: rotate(-45deg) translate(0px, -30px) scale(0.2);
+        opacity: 0;
+    }
+    50% {
+        background-color: transparent;
+        transform: rotate(0deg) translate(0px, 0px) scale(0.9);
+        opacity: 0.75;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn2 {
+    0% {
+        background-color: transparent;
+        transform: rotate(-60deg) scale(0.2);
+        opacity: 0;
+    }
+    50% {
+        background-color: transparent;
+        transform: rotate(0deg) scale(0.9);
+        opacity: 0.75;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(0px, -30px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        background-color: transparent;
+        transform: translate(0px, -60px) scale(0.2);
+        opacity: 0;
+    }
+}
