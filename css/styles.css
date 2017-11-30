@@ -2,6 +2,8 @@
     font-family: 'Gloria Hallelujah', cursive;
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
     transition: 0.3s ease all;
 }
 
@@ -39,7 +41,7 @@ footer {
     position: fixed;
     top: 2em;
     /* width: calc(100vw - 2em); */
-    width: 70vw;
+    width: 90vw;
     height: calc(100vh - 6em);
     display: grid;
     grid-gap: 1em;
@@ -48,6 +50,7 @@ footer {
 
 #left-column,
 #center-column {
+    border-radius: 4px;
     padding: 0.5em 1em;
     background: rgba(255, 255, 255, 0.1);
 }
@@ -71,7 +74,7 @@ input:hover {
 
 #button1 {
     z-index: 1;
-    background: limegreen;
+    background: lightsteelblue;
 }
 
 .activebutton1 {
@@ -146,7 +149,7 @@ input:hover {
 
 #bg2 {
     height: 100vh;
-    margin-left: -200px;
+    margin-left: -400px;
     width: auto;
 }
 
