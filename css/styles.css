@@ -147,7 +147,8 @@ input:hover {
     /* border: solid 2px yellow; */
 }
 
-#bg2 {
+#bg2,
+#bg {
     height: 100vh;
     margin-left: -400px;
     width: auto;
@@ -165,4 +166,8 @@ input:hover {
     height: 100%;
     max-width: calc(100% - 200px - 1em);
     overflow: hidden;
+}
+
+#bg-wrap {
+    width: 100%;
 }
