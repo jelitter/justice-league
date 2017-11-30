@@ -32,13 +32,15 @@ footer {
 }
 
 .container {
+    align-self: center;
+    margin: 1em;
     color: white;
     text-shadow: 1px 1px 4px #000;
     position: fixed;
     top: 2em;
-    width: calc(100vw - 2em);
+    /* width: calc(100vw - 2em); */
+    width: 70vw;
     height: calc(100vh - 6em);
-    margin: 1em;
     display: grid;
     grid-gap: 1em;
     grid-template-columns: 200px 1fr;
@@ -48,12 +50,6 @@ footer {
 #center-column {
     padding: 0.5em 1em;
     background: rgba(255, 255, 255, 0.1);
-}
-
-#left-column {
-    /* display: grid;
-    grid-gap: 0.5em;
-    grid-template-rows: 1fr 1fr 1fr; */
 }
 
 input {
@@ -106,24 +102,64 @@ input:hover {
 }
 
 .fadeIn {
-    animation: fadeIn 1s forwards;
+    animation: fadeIn 18s forwards;
+}
+
+.fadeInOut {
+    top: 0;
+    right: 0;
+    animation: fadeInOut 20s forwards;
+}
+
+.fadeInOut2 {
+    top: 0;
+    right: 0;
+    animation: fadeInOut2 20s forwards;
 }
 
 .fadeOut {
     animation: fadeOut 1s forwards;
 }
 
-#bg {
-    margin: -0.5em -1em;
-    position: absolute;
-    opacity: 0.25;
-    z-index: -1;
-    width: calc(100% - 200px - 1em);
-    height: auto;
-    /* max-height: calc(100% - 2em); */
-    overflow: hidden;
+.normal-bg {
+    animation: none;
+    opacity: 0;
+    margin-left: 0px;
 }
 
+#bg2,
+#bg {
+    position: relative;
+    z-index: -1;
+    margin-left: 0px;
+    overflow: hidden;
+    height: 100%;
+    width: auto;
+    align-self: center;
+}
+
+#bg2,
+#bg-wrap2 {
+    width: 200px;
+    /* border: solid 2px yellow; */
+}
+
+#bg2 {
+    height: 100vh;
+    margin-left: -200px;
+    width: auto;
+}
+
+#bg-wrap2,
 #bg-wrap {
-    border: solid 2px yellow;
+    display: grid;
+    grid-gap: 0;
+    grid-template-columns: 1fr;
+    align-content: center;
+    text-align: center;
+    margin: -0.5em -1em;
+    position: absolute;
+    height: 100%;
+    max-width: calc(100% - 200px - 1em);
+    overflow: hidden;
 }
