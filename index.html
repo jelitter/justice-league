@@ -25,16 +25,40 @@
 
             <input id="button1" type="button" value="MOVIE LINKS">
             <div id="sec-buttons">
-                <input id="button2" type="button" value="IMDB Website">
-                <input id="button3" type="button" value="Official Website">
+                <a href="http://www.imdb.com/title/tt0974015/" target="_blank">
+                    <input id="button2" type="button" value="IMDB Website">
+                </a>
+                <a href="http://www.justiceleaguethemovie.com/" target="_blank">
+                    <input id="button3" type="button" value="Official Website">
+                </a>
             </div>
         </div>
         <div id="center-column">
             <div id="bg-wrap">
                 <img id="bg">
             </div>
-            <h1>SOFT6007 Assessment 3 - JavaScript</h1>
-            <h2>Who is your favourite member of the Justice League?</h2>
+            <div id="main-content">
+                <div>
+                    <h1>SOFT6007 Assessment 3 - JavaScript</h1>
+                    <h2>Who is your favourite member of the Justice League?</h2>
+                </div>
+                <div id="button-hero">
+                    <input id="buttonHero" type="button" value="Random Justice League Member!">
+                </div>
+
+                <div id="hero-display">
+                    <div>
+                        <h1 id="hero-name"></h1>
+                        <div id="hero-img-container">
+                            <img id="hero-img" src="" alt="">
+                        </div>
+                    </div>
+                    <div id="hero-data">
+
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
     <footer>
@@ -42,7 +66,11 @@
     </footer>
 
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch-jsonp/1.0.6/fetch-jsonp.min.js"></script>
+    <script src="js/config.js"></script>
     <script src="js/script.js"></script>
 </body>
 
 </html>
+
+onclick="location.href='http://google.com';

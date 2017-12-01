@@ -1,0 +1,17 @@
+Movie:
+  - http://www.justiceleaguethemovie.com/
+
+
+Characters:
+  - http://www.dccomics.com/characters/superman
+  - http://www.dccomics.com/characters/batman
+  - http://www.dccomics.com/characters/wonder-woman
+  - http://www.dccomics.com/characters/green-lantern
+  - http://www.dccomics.com/characters/the-flash
+  - http://www.dccomics.com/characters/aquaman
+  - http://www.dccomics.com/characters/cyborg
+
+
+Super Hero API:
+  - https://comicvine.gamespot.com/api/documentation
+  

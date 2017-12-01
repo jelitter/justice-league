@@ -66,13 +66,17 @@ input {
     box-shadow: 1px 1px 4px #222;
 }
 
+a {
+    text-decoration: none;
+}
+
 input:hover {
-    transform: scale(1.05);
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 1px 1px 8px #222, 0px 0px 1em white inset;
 }
 
 #button1 {
+    position: relative;
     z-index: 1;
     background: lightsteelblue;
 }
@@ -83,13 +87,23 @@ input:hover {
 }
 
 #button2 {
+    position: relative;
     background: cornflowerblue;
     opacity: 0;
 }
 
 #button3 {
+    position: relative;
     background: coral;
     opacity: 0;
+}
+
+#buttonHero {
+    display: block;
+    position: relative;
+    background: limegreen;
+    width: 100%;
+    align-self: center;
 }
 
 #sec-buttons {
@@ -133,7 +147,7 @@ input:hover {
 #bg2,
 #bg {
     position: relative;
-    z-index: -1;
+    /* z-index: -1; */
     margin-left: 0px;
     overflow: hidden;
     height: 100%;
@@ -170,4 +184,64 @@ input:hover {
 
 #bg-wrap {
     width: 100%;
+}
+
+#main-content {
+    height: 100%;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: auto auto 1fr;
+}
+
+#button-hero {
+    display: block;
+    align-content: center;
+}
+
+#hero-display {
+    border-radius: 4px;
+    padding: 1em;
+    /* background: rgba(255, 255, 255, 0.25); */
+    /* align-content: center; */
+}
+
+#hero-display {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: auto 1fr;
+    z-index: 1;
+    max-width: 100%;
+    max-height: 600px;
+}
+
+#hero-img-container {
+    /* position: absolute; */
+    /* width: 100%; */
+    max-height: calc(100% - 3em) !important;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.5);
+}
+
+#hero-img {
+    z-index: -1;
+    width: auto;
+    max-width: 100%;
+    animation: slideIn 1s;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#hero-name {
+    margin: 0.5em 1em;
+    position: absolute;
+    z-index: 1;
+    animation: slideIn 1s;
+    text-align: center;
+    text-shadow: 2px 2px solid black;
+}
+
+#hero-data {
+    /* border: solid 2px lime; */
+    box-shadow: rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 2px #000;
 }
