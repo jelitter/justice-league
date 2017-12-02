@@ -3,11 +3,14 @@
 var config = {
     // api_key: '494e2145fb4f91a34aba01d68fd14d413322eb28',
     // api_url: 'https://comicvine.gamespot.com/api/',
-    char_api: 'https://comicvine.gamespot.com/api/characters/?format=jsonp&json_callback=gotData&api_key=494e2145fb4f91a34aba01d68fd14d413322eb28&filter=name:'
+    char_api: 'https://comicvine.gamespot.com/api/characters/?format=jsonp&json_callback=gotData&limit=10&api_key=494e2145fb4f91a34aba01d68fd14d413322eb28&filter=name:'
         // char_api: 'https://comicvine.gamespot.com/api/characters/?format=json&api_key=494e2145fb4f91a34aba01d68fd14d413322eb28&filter=name:'
 }
 
-const heroes = ["superman", "batman", "wonder woman", "aquaman", "cyborg"]
+const heroesDC = ["superman", "batman", "wonder woman", "aquaman", "cyborg"]
+const heroesMarvel = ["spider-man", "deadpool", "iron man", "captain america", "vision", "Hulk", "Thor"];
+
+
 var secButtons = document.getElementById("sec-buttons");
 var secButtons = document.getElementById("sec-buttons");
 var button1 = document.getElementById("button1");
@@ -18,12 +21,15 @@ var bg2 = document.getElementById("bg2");
 var bgWrap = document.getElementById("bg-wrap");
 var bgWrap2 = document.getElementById("bg-wrap2");
 var bgWrap2 = document.getElementById("bg-wrap2");
-var buttonHero = document.getElementById("button-hero");
+var buttonDC = document.getElementById("buttonDC");
 
 var heroDisplay = {
     name: document.getElementById("hero-name"),
     img: document.getElementById("hero-img"),
-    data: document.getElementById("hero-data")
+    data: document.getElementById("hero-data"),
+    desc: document.getElementById("hero-description"),
+    realName: document.getElementById("hero-real-name"),
+    birth: document.getElementById("hero-birth"),
 }
 
 var prevBackground = -1;
@@ -55,10 +61,20 @@ button1.addEventListener("click", () => {
     }
 });
 
-buttonHero.addEventListener("click", () => {
+buttonDC.addEventListener("click", () => {
     let heroe = "";
     do {
-        heroe = heroes[Math.floor(Math.random() * heroes.length)];
+        heroe = heroesDC[Math.floor(Math.random() * heroesDC.length)];
+    } while (heroe == prevHeroe);
+    prevHeroe = heroe;
+    console.log("Getting heroe:", heroe);
+    getSuperHero2(heroe);
+});
+
+buttonMarvel.addEventListener("click", () => {
+    let heroe = "";
+    do {
+        heroe = heroesMarvel[Math.floor(Math.random() * heroesMarvel.length)];
     } while (heroe == prevHeroe);
     prevHeroe = heroe;
     console.log("Getting heroe:", heroe);
@@ -107,7 +123,9 @@ function getSuperHero2(name) {
 
     heroDisplay.img.src = "img/loading.jpg";
     heroDisplay.name.innerText = (name == "batman") ? "nanana..." : "...";
-    heroDisplay.data.innerText = "";
+    heroDisplay.realName.innerText = "";
+    heroDisplay.birth.innerText = "";
+    heroDisplay.desc.innerText = "";
 
     try {
         fetchJsonp(url);
@@ -120,13 +138,20 @@ function getSuperHero2(name) {
 
 function gotData(data) {
     // console.log(data.results[0].description);
-    console.log(data);
     // console.log(data.results[0].name);
 
+    let n, result;
+    do {
+        n = Math.floor(Math.random() * data.results.length);
+        result = data.results[n];
+        console.log(`${result.name} => ${n}/${data.results.length}`);
+    } while (result.image.small_url == null)
 
-    heroDisplay.img.src = data.results[0].image.small_url;
-    heroDisplay.name.innerText = data.results[0].name;
-    heroDisplay.data.innerText = data.results[0].deck;
 
-
+    heroDisplay.img.src = result.image.small_url;
+    heroDisplay.name.innerText = result.name;
+    heroDisplay.realName.innerText = result.real_name ? "Real name: " + result.real_name : "Real name unknown.";
+    heroDisplay.birth.innerText = result.birth ? "Born: " + result.birth : "";
+    heroDisplay.desc.innerText = result.deck;
+    heroDisplay.desc.innerText += "\n\n(Source: https://comicvine.gamespot.com/api)";
 }

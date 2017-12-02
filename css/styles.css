@@ -1,5 +1,6 @@
 * {
-    font-family: 'Gloria Hallelujah', cursive;
+    font-family: 'Bangers', cursive;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
     -webkit-font-smoothing: antialiased;
@@ -98,12 +99,22 @@ input:hover {
     opacity: 0;
 }
 
-#buttonHero {
-    display: block;
+#buttonMarvel {
+    font-family: 'Bangers';
+    color: white;
+    font-size: 2em;
+    text-shadow: 1px 1px 4px black;
+    background: cornflowerblue;
     position: relative;
-    background: limegreen;
-    width: 100%;
-    align-self: center;
+}
+
+#buttonDC {
+    font-family: 'Bangers';
+    color: white;
+    font-size: 2em;
+    text-shadow: 1px 1px 4px black;
+    background: darkmagenta;
+    position: relative;
 }
 
 #sec-buttons {
@@ -194,8 +205,9 @@ input:hover {
 }
 
 #button-hero {
-    display: block;
-    align-content: center;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: 1fr 1fr;
 }
 
 #hero-display {
@@ -207,6 +219,7 @@ input:hover {
 
 #hero-display {
     display: grid;
+    margin: 0;
     grid-gap: 1em;
     grid-template-columns: auto 1fr;
     z-index: 1;
@@ -217,22 +230,27 @@ input:hover {
 #hero-img-container {
     /* position: absolute; */
     /* width: 100%; */
-    max-height: calc(100% - 3em) !important;
+    min-width: 420px;
+    max-height: calc(100% - 2em) !important;
     overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
 }
 
 #hero-img {
     z-index: -1;
     width: auto;
-    max-width: 100%;
+    width: 100%;
     animation: slideIn 1s;
-    border-radius: 4px;
+    /* border-radius: 4px; */
     overflow: hidden;
 }
 
 #hero-name {
-    margin: 0.5em 1em;
+    max-width: 400px;
+    font-family: 'Bangers';
+    font-size: 2.5em;
+    margin: 0.25em 0.5em;
     position: absolute;
     z-index: 1;
     animation: slideIn 1s;
@@ -241,7 +259,7 @@ input:hover {
 }
 
 #hero-data {
-    /* border: solid 2px lime; */
+    max-height: calc(100% - 2em);
     box-shadow: rgba(0, 0, 0, 0.5);
     text-shadow: 1px 1px 2px #000;
 }
