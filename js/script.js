@@ -71,8 +71,8 @@ buttonDC.addEventListener("click", () => {
         heroe = heroesDC[Math.floor(Math.random() * heroesDC.length)];
     } while (heroe == prevHeroe);
     prevHeroe = heroe;
-    console.log("Getting heroe:", heroe);
-    getSuperHero2(heroe);
+    // console.log("Getting heroe:", heroe);
+    getSuperHero(heroe);
 });
 
 buttonMarvel.addEventListener("click", () => {
@@ -81,8 +81,8 @@ buttonMarvel.addEventListener("click", () => {
     //     heroe = heroesMarvel[Math.floor(Math.random() * heroesMarvel.length)];
     // } while (heroe == prevHeroe);
     // prevHeroe = heroe;
-    console.log("Getting random heroe...");
-    getSuperHero2();
+    // console.log("Getting random heroe...");
+    getSuperHero();
 });
 
 function showSecButtons() {
@@ -111,18 +111,7 @@ function newBackground(element) {
     }, 1000);
 }
 
-function getSuperHero(name) {
-
-    console.log(`Getting superhero info...`);
-
-    const url = config.char_api + name;
-
-    fetch(url, { mode: 'cors' }).then((response) => {
-        console.log(response);
-    });
-}
-
-function getSuperHero2(name = "") {
+function getSuperHero(name = "") {
 
     const url = name ? config.char_api + name : config.random_char_api + Math.floor(Math.random() * 1000);
 
@@ -144,7 +133,7 @@ function getSuperHero2(name = "") {
         // We have randomHeros already cached
         do {
             result = randomHeros[Math.floor(Math.random() * randomHeros.length)];
-            console.log("Random hero from cache:", result.name);
+            // console.log("Random hero from cache:", result.name);
         } while (result.image == null);
 
         heroDisplay.img.src = result.image.small_url;
@@ -175,8 +164,8 @@ function gotData(data) {
     do {
         n = Math.floor(Math.random() * data.results.length);
         result = data.results[n];
-        console.log(`${result.name} => ${n}/${data.results.length}`);
-    } while (result.image.small_url == null)
+        // console.log(`${result.name} => ${n}/${data.results.length}`);
+    } while (result.image == null);
 
     if (randomHeros.length == 0 && data.results.length > 5) {
         randomHeros = data.results;
