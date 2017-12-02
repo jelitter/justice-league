@@ -127,7 +127,7 @@ function getSuperHero2(name = "") {
     const url = name ? config.char_api + name : config.random_char_api + Math.floor(Math.random() * 1000);
 
     heroDisplay.img.src = "img/loading.jpg";
-    heroDisplay.name.innerText = (name == "batman") ? "nanana..." : "...";
+    heroDisplay.name.innerText = (name == "batman") ? "nanana. . ." : "";
     heroDisplay.nameRight.innerText = "";
     heroDisplay.realName.innerText = "";
     heroDisplay.aliases.innerText = "";

@@ -35,7 +35,6 @@ footer {
 }
 
 .container {
-    align-self: center;
     margin: 1em;
     color: white;
     text-shadow: 1px 1px 4px #000;
@@ -79,7 +78,7 @@ input:hover {
 #button1 {
     position: relative;
     z-index: 1;
-    background: lightsteelblue;
+    background: lightyellow;
 }
 
 .activebutton1 {
@@ -89,7 +88,7 @@ input:hover {
 
 #button2 {
     position: relative;
-    background: cornflowerblue;
+    background: limegreen;
     opacity: 0;
 }
 
@@ -212,7 +211,7 @@ input:hover {
 
 #hero-display {
     border-radius: 4px;
-    padding: 1em;
+    /* padding: 1em; */
     /* background: rgba(255, 255, 255, 0.25); */
     /* align-content: center; */
 }
