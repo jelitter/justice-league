@@ -94,3 +94,31 @@
         opacity: 0;
     }
 }
+
+.slideIn {
+    animation: slideIn 1s forwards ease-in-out;
+}
+
+.slideOut {
+    animation: slideOut 1s forwards ease-in-out;
+}
+
+.fadeIn {
+    animation: fadeIn 18s forwards ease-in-out;
+}
+
+.fadeInOut {
+    top: 0;
+    right: 0;
+    animation: fadeInOut 20s forwards ease-in-out;
+}
+
+.fadeInOut2 {
+    top: 0;
+    right: 0;
+    animation: fadeInOut2 10s forwards ease-in-out;
+}
+
+.fadeOut {
+    animation: fadeOut 1s forwards ease-in-out;
+}
