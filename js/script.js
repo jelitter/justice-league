@@ -3,7 +3,8 @@
 var config = {
     // api_key: '494e2145fb4f91a34aba01d68fd14d413322eb28',
     // api_url: 'https://comicvine.gamespot.com/api/',
-    char_api: 'https://comicvine.gamespot.com/api/characters/?format=jsonp&json_callback=gotData&limit=10&api_key=494e2145fb4f91a34aba01d68fd14d413322eb28&filter=name:'
+    char_api: 'https://comicvine.gamespot.com/api/characters/?format=jsonp&json_callback=gotData&limit=1&api_key=494e2145fb4f91a34aba01d68fd14d413322eb28&filter=name:',
+    random_char_api: 'https://comicvine.gamespot.com/api/characters/?format=jsonp&json_callback=gotData&limit=100&api_key=494e2145fb4f91a34aba01d68fd14d413322eb28&filter=offset:'
         // char_api: 'https://comicvine.gamespot.com/api/characters/?format=json&api_key=494e2145fb4f91a34aba01d68fd14d413322eb28&filter=name:'
 }
 
@@ -25,6 +26,8 @@ var buttonDC = document.getElementById("buttonDC");
 
 var heroDisplay = {
     name: document.getElementById("hero-name"),
+    nameRight: document.getElementById("hero-name-right"),
+    aliases: document.getElementById("hero-aliases"),
     img: document.getElementById("hero-img"),
     data: document.getElementById("hero-data"),
     desc: document.getElementById("hero-description"),
@@ -32,6 +35,7 @@ var heroDisplay = {
     birth: document.getElementById("hero-birth"),
 }
 
+var randomHeros = [];
 var prevBackground = -1;
 var prevHeroe = "";
 
@@ -72,13 +76,13 @@ buttonDC.addEventListener("click", () => {
 });
 
 buttonMarvel.addEventListener("click", () => {
-    let heroe = "";
-    do {
-        heroe = heroesMarvel[Math.floor(Math.random() * heroesMarvel.length)];
-    } while (heroe == prevHeroe);
-    prevHeroe = heroe;
-    console.log("Getting heroe:", heroe);
-    getSuperHero2(heroe);
+    // let heroe = "";
+    // do {
+    //     heroe = heroesMarvel[Math.floor(Math.random() * heroesMarvel.length)];
+    // } while (heroe == prevHeroe);
+    // prevHeroe = heroe;
+    console.log("Getting random heroe...");
+    getSuperHero2();
 });
 
 function showSecButtons() {
@@ -95,7 +99,7 @@ function newBackground(element) {
 
     var n;
     do {
-        n = Math.floor(Math.random() * 21) + 1; // Random int between 1 and 21
+        n = Math.floor(Math.random() * 22) + 1; // Random int between 1 and 21
     } while (n == prevBackground);
     prevBackground = n;
 
@@ -118,20 +122,47 @@ function getSuperHero(name) {
     });
 }
 
-function getSuperHero2(name) {
-    const url = config.char_api + name;
+function getSuperHero2(name = "") {
+
+    const url = name ? config.char_api + name : config.random_char_api + Math.floor(Math.random() * 1000);
 
     heroDisplay.img.src = "img/loading.jpg";
     heroDisplay.name.innerText = (name == "batman") ? "nanana..." : "...";
+    heroDisplay.nameRight.innerText = "";
     heroDisplay.realName.innerText = "";
+    heroDisplay.aliases.innerText = "";
     heroDisplay.birth.innerText = "";
     heroDisplay.desc.innerText = "";
 
-    try {
-        fetchJsonp(url);
-    } catch (e) {
-        console.log(e);
+    if (name || (name == "" && randomHeros.length == 0)) {
+        try {
+            fetchJsonp(url);
+        } catch (e) {
+            console.log(e);
+        }
+    } else {
+        // We have randomHeros already cached
+        do {
+            result = randomHeros[Math.floor(Math.random() * randomHeros.length)];
+            console.log("Random hero from cache:", result.name);
+        } while (result.image == null);
+
+        heroDisplay.img.src = result.image.small_url;
+        heroDisplay.img.classList = ["slideIn"];
+
+        heroDisplay.name.innerText = result.name;
+        heroDisplay.nameRight.innerText = result.name;
+        heroDisplay.realName.innerText = result.real_name ? "Real name: " + result.real_name : "Real name unknown.";
+
+        let aliases = result.aliases ? "Aliases: " + result.aliases.split(/\n/).join(', ') : "";
+        heroDisplay.aliases.innerHTML = aliases;
+
+        heroDisplay.birth.innerText = result.birth ? "Born: " + result.birth : "";
+        heroDisplay.desc.innerText = result.deck;
+        heroDisplay.desc.innerHTML += "<br><br>(Source: <a href='https://comicvine.gamespot.com/api/documentation' target='_blank'>Comicvine</a>)";
     }
+
+
     // .then(res => res.json())
     // .then(json => console.log(json));
 }
@@ -147,11 +178,21 @@ function gotData(data) {
         console.log(`${result.name} => ${n}/${data.results.length}`);
     } while (result.image.small_url == null)
 
+    if (randomHeros.length == 0 && data.results.length > 5) {
+        randomHeros = data.results;
+    }
 
     heroDisplay.img.src = result.image.small_url;
+    heroDisplay.img.classList = ["slideIn"];
+
     heroDisplay.name.innerText = result.name;
+    heroDisplay.nameRight.innerText = result.name;
     heroDisplay.realName.innerText = result.real_name ? "Real name: " + result.real_name : "Real name unknown.";
+
+    let aliases = result.aliases ? "Aliases: " + result.aliases.split(/\n/).join(', ') : "";
+    heroDisplay.aliases.innerHTML = aliases;
+
     heroDisplay.birth.innerText = result.birth ? "Born: " + result.birth : "";
     heroDisplay.desc.innerText = result.deck;
-    heroDisplay.desc.innerText += "\n\n(Source: https://comicvine.gamespot.com/api)";
+    heroDisplay.desc.innerHTML += "<br><br>(Source: <a href='https://comicvine.gamespot.com/api/documentation' target='_blank'>Comicvine</a>)";
 }

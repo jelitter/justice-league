@@ -122,31 +122,31 @@ input:hover {
 }
 
 .slideIn {
-    animation: slideIn 1s forwards;
+    animation: slideIn 1s forwards ease-in-out;
 }
 
 .slideOut {
-    animation: slideOut 1s forwards;
+    animation: slideOut 1s forwards ease-in-out;
 }
 
 .fadeIn {
-    animation: fadeIn 18s forwards;
+    animation: fadeIn 18s forwards ease-in-out;
 }
 
 .fadeInOut {
     top: 0;
     right: 0;
-    animation: fadeInOut 20s forwards;
+    animation: fadeInOut 20s forwards ease-in-out;
 }
 
 .fadeInOut2 {
     top: 0;
     right: 0;
-    animation: fadeInOut2 20s forwards;
+    animation: fadeInOut2 20s forwards ease-in-out;
 }
 
 .fadeOut {
-    animation: fadeOut 1s forwards;
+    animation: fadeOut 1s forwards ease-in-out;
 }
 
 .normal-bg {
@@ -217,6 +217,10 @@ input:hover {
     /* align-content: center; */
 }
 
+#hero-display a {
+    color: yellowgreen;
+}
+
 #hero-display {
     display: grid;
     margin: 0;
@@ -233,7 +237,7 @@ input:hover {
     min-width: 420px;
     max-height: calc(100% - 2em) !important;
     overflow: hidden;
-    box-shadow: rgba(0, 0, 0, 0.5);
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     border-radius: 4px;
 }
 
@@ -241,7 +245,7 @@ input:hover {
     z-index: -1;
     width: auto;
     width: 100%;
-    animation: slideIn 1s;
+    animation: slideIn 1s ease-in-out;
     /* border-radius: 4px; */
     overflow: hidden;
 }
@@ -253,9 +257,17 @@ input:hover {
     margin: 0.25em 0.5em;
     position: absolute;
     z-index: 1;
-    animation: slideIn 1s;
+    animation: slideIn ease-in-out;
     text-align: center;
     text-shadow: 2px 2px solid black;
+}
+
+#hero-real-name {
+    color: yellow;
+}
+
+#hero-aliases {
+    color: limegreen;
 }
 
 #hero-data {
