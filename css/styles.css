@@ -104,12 +104,12 @@ input:hover {
     transform: translate(0px, -60px) scale(0);
 }
 
-#button-hero {
+#hero-container {
     display: grid;
 }
 
 @media only screen and (min-width: 1200px) {
-    #button-hero {
+    #hero-container {
         grid-gap: 0.5em;
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr;
@@ -117,7 +117,7 @@ input:hover {
 }
 
 @media only screen and (min-width: 1400px) {
-    #button-hero {
+    #hero-container {
         grid-gap: 1em;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto 1fr;
@@ -200,7 +200,6 @@ input:hover {
     display: grid;
     grid-gap: 1em;
     grid-template-rows: auto 1fr;
-    /* overflow: none; */
 }
 
 #hero-display {

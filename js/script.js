@@ -1,17 +1,9 @@
-// import config from './config.js';
-
 var config = {
-    // api_key: '494e2145fb4f91a34aba01d68fd14d413322eb28',
-    // api_url: 'https://comicvine.gamespot.com/api/',
     char_api: 'https://comicvine.gamespot.com/api/characters/?format=jsonp&json_callback=gotData&limit=1&api_key=494e2145fb4f91a34aba01d68fd14d413322eb28&filter=name:',
     random_char_api: 'https://comicvine.gamespot.com/api/characters/?format=jsonp&json_callback=gotData&limit=100&api_key=494e2145fb4f91a34aba01d68fd14d413322eb28&filter=offset:'
-    // char_api: 'https://comicvine.gamespot.com/api/characters/?format=json&api_key=494e2145fb4f91a34aba01d68fd14d413322eb28&filter=name:'
 }
 
 const heroesDC = ["superman", "batman", "wonder woman", "aquaman", "cyborg"]
-const heroesMarvel = ["spider-man", "deadpool", "iron man", "captain america", "vision", "Hulk", "Thor"];
-
-
 var secButtons = document.getElementById("sec-buttons");
 var secButtons = document.getElementById("sec-buttons");
 var button1 = document.getElementById("button1");
@@ -109,7 +101,6 @@ function hideSecButtons() {
 }
 
 function newBackground(element) {
-
     var n;
     do {
         n = Math.floor(Math.random() * 22) + 1; // Random int between 1 and 21
@@ -127,7 +118,6 @@ function newBackground(element) {
 function getSuperHero(name = "") {
 
     const url = name ? config.char_api + name : config.random_char_api + Math.floor(Math.random() * 1000);
-
 
     heroDisplay.img.src = "img/loading.jpg";
     heroDisplay.name.innerText = (name == "batman") ? "nanana . . ." : "";
