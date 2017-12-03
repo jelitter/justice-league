@@ -48,26 +48,67 @@ footer {
     height: calc(100vh - 6em);
     display: grid;
     grid-gap: 1em;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 300px 1fr;
 }
 
 #left-column,
 #center-column {
     border-radius: 4px;
-    padding: 0.5em 1em;
+    padding: 1em;
     background: rgba(255, 255, 255, 0.1);
     max-height: calc(100% - 1em);
     height: auto;
 }
 
+#left-column-content {
+    display:grid;
+    grid-gap: 1em;
+    grid-template-rows: 1fr 1fr;
+    height: 100%;
+}
+
+#sec-buttons {
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: 1fr 1fr;
+}
+
+#button2, #button3 {
+    color: white;
+    text-shadow: 1px 1px 4px black;
+    text-align: center;
+    position: relative;
+    opacity: 0;
+    transform: translate(0px, -60px) scale(0);
+}
+
+#button1 {
+    position: relative;
+    z-index: 1;
+    color:white;
+    text-shadow: 1px 1px 4px black;
+
+    background: darkslateblue;
+    width: 100%; 
+    margin-bottom: 1em;
+}
+
+#button2 {
+    background: limegreen;
+}
+#button3 {
+    background: coral;
+}
+
+#sec-buttons a,
 input {
     cursor: pointer;
     border-radius: 4px;
     border: 0;
     font-size: 1em;
     padding: 1em;
-    width: 100%;
-    margin-bottom: 0.5em;
+    /* width: 100%; */
+    /* margin-bottom: 0.5em; */
     box-shadow: 1px 1px 4px #222;
 }
 
@@ -75,33 +116,35 @@ a {
     text-decoration: none;
 }
 
+#sec-buttons a:hover,
 input:hover {
-    background: rgba(255, 255, 255, 0.9);
+    /* background: rgba(255, 255, 255, 0.9); */
     box-shadow: 1px 1px 8px #222, 0px 0px 1em white inset;
 }
 
-#button1 {
-    position: relative;
-    z-index: 1;
-    background: lightyellow;
-}
+
 
 .activebutton1 {
     font-size: 0.7em;
 }
 
-#button2 {
-    position: relative;
-    background: limegreen;
-    opacity: 0;
-    transform: translate(0px, -60px) scale(0);
+#slidecontainer {
+    text-align: center;
+    display: grid;
+    grid-gap: 1em;
+    grid-template-rows: auto auto 1fr;
 }
 
-#button3 {
+#page-rating {
     position: relative;
-    background: coral;
-    opacity: 0;
-    transform: translate(0px, -60px) scale(0);
+    text-align: center;
+    z-index: 1;
+    outline: none;
+    width: calc(100% - 2em);
+}
+
+#rating {
+    color: hotpink;
 }
 
 #hero-container {
@@ -124,7 +167,7 @@ input:hover {
     }
 }
 
-#buttonMarvel {
+#buttonRandom {
     font-family: 'Bangers';
     color: white;
     font-size: 2em;
@@ -133,6 +176,7 @@ input:hover {
     position: relative;
 }
 
+
 #buttonDC {
     font-family: 'Bangers';
     color: white;
@@ -140,10 +184,6 @@ input:hover {
     text-shadow: 1px 1px 4px black;
     background: darkmagenta;
     position: relative;
-}
-
-#sec-buttons {
-    display: block;
 }
 
 .normal-bg {
@@ -167,7 +207,7 @@ input:hover {
 
 #bg2,
 #bg-wrap2 {
-    width: 200px;
+    width: 300px;
 }
 
 #bg2,
@@ -184,10 +224,10 @@ input:hover {
     grid-template-columns: 1fr;
     align-content: center;
     text-align: center;
-    margin: -0.5em -1em;
+    margin: -1em;
     position: absolute;
     height: 100%;
-    max-width: calc(100% - 200px - 1em);
+    max-width: calc(100% - 300px - 1em);
     overflow: hidden;
 }
 
@@ -232,7 +272,7 @@ input:hover {
     transform-origin: 0 0;
 }
 
-#hero-name {
+#hero-name h1 {
     max-width: 400px;
     font-family: 'Bangers';
     font-size: 2.5em;
@@ -241,7 +281,7 @@ input:hover {
     z-index: 1;
     animation: slideIn ease-in-out;
     text-align: center;
-    text-shadow: 2px 2px solid black;
+    text-shadow: 2px 2px 4px black, 0px 0px 4px black;
 }
 
 #hero-real-name {
@@ -256,4 +296,13 @@ input:hover {
     max-height: calc(100% - 2em);
     box-shadow: rgba(0, 0, 0, 0.5);
     text-shadow: 1px 1px 2px #000;
+}
+
+
+#buttonRandom:disabled,
+#buttonDC:disabled {
+    background: #DDD;
+    color: #888;
+    text-shadow: none;
+    cursor: not-allowed;
 }
