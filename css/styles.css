@@ -41,7 +41,6 @@ footer {
     text-shadow: 1px 1px 4px #000;
     position: relative;
     min-width: 1000px;
-    width: 80vw;
     margin: auto;
     align-self: center;
     min-height: calc(100vh - 6em);
@@ -151,17 +150,30 @@ input:hover {
     display: grid;
 }
 
+@media only screen and (min-width: 500px) {
+    .container {
+        width: calc(100vw - 2em);        
+    }
+}    
+
 @media only screen and (min-width: 1200px) {
+    .container {
+        width: calc(100vw - 4em);        
+    }
+}    
+
+
+@media only screen and (min-width: 1000px) {
     #hero-container {
-        grid-gap: 0.5em;
+        grid-gap: 0.5em 1em;
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr;
     }
 }
 
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1200px) {
     #hero-container {
-        grid-gap: 1em;
+        grid-gap: 0.5em 1em;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto 1fr;
     }
