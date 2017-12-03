@@ -24,6 +24,7 @@ var buttonRandom = document.getElementById("buttonRandom");
 
 var heroDisplay = {
     logo: document.getElementById("hero-logo"),
+    logoContainer: document.getElementById("logo-container"),
     name: document.getElementById("hero-name"),
     nameRight: document.getElementById("hero-name-right"),
     aliases: document.getElementById("hero-aliases"),
@@ -180,7 +181,6 @@ function gotData(data) {
 function clearHero() {
     heroDisplay.logo.src = "";
     heroDisplay.logo.style.transform = "";
-    heroDisplay.logoContainer.style.transform = "";
     heroDisplay.img.src = "img/loading.jpg";
     heroDisplay.name.innerText = (name == "batman") ? "nanana . . ." : "";
     heroDisplay.nameRight.innerText = "";
@@ -195,7 +195,10 @@ function render(result) {
     heroDisplay.img.classList = ["slideIn"];
 
     if (heroesDC.includes(result.name.toLowerCase())) {
+        heroDisplay.logoContainer.style.display = "";
         heroDisplay.logo.src = "img/logo/" + result.name + ".png";
+    } else {
+        heroDisplay.logoContainer.style.display = "none";
     }
 
     heroDisplay.name.innerHTML = "<h1>" + result.name + "</h1>";
