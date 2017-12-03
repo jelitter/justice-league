@@ -5,7 +5,8 @@ var config = {
 
 const ratingMessages = ["Not a fan","It's okay","Great work!","Fabulous Page!"];
 
-const heroesDC = ["superman", "batman", "wonder woman", "aquaman", "cyborg"]
+const heroesDC = ["superman", "batman", "wonder woman", "aquaman", "cyborg"];
+
 var secButtons = document.getElementById("sec-buttons");
 var secButtons = document.getElementById("sec-buttons");
 var button1 = document.getElementById("button1");
@@ -22,6 +23,7 @@ var buttonDC = document.getElementById("buttonDC");
 var buttonRandom = document.getElementById("buttonRandom");
 
 var heroDisplay = {
+    logo: document.getElementById("hero-logo"),
     name: document.getElementById("hero-name"),
     nameRight: document.getElementById("hero-name-right"),
     aliases: document.getElementById("hero-aliases"),
@@ -122,7 +124,7 @@ function hideSecButtons() {
 function newBackground(element) {
     var n;
     do {
-        n = Math.floor(Math.random() * 22) + 1; // Random int between 1 and 21
+        n = Math.floor(Math.random() * 25) + 1; // Random int between 1 and 21
     } while (n == prevBackground);
     prevBackground = n;
 
@@ -176,6 +178,9 @@ function gotData(data) {
 }
 
 function clearHero() {
+    heroDisplay.logo.src = "";
+    heroDisplay.logo.style.transform = "";
+    heroDisplay.logoContainer.style.transform = "";
     heroDisplay.img.src = "img/loading.jpg";
     heroDisplay.name.innerText = (name == "batman") ? "nanana . . ." : "";
     heroDisplay.nameRight.innerText = "";
@@ -188,6 +193,10 @@ function clearHero() {
 function render(result) {
     heroDisplay.img.src = result.image.small_url;
     heroDisplay.img.classList = ["slideIn"];
+
+    if (heroesDC.includes(result.name.toLowerCase())) {
+        heroDisplay.logo.src = "img/logo/" + result.name + ".png";
+    }
 
     heroDisplay.name.innerHTML = "<h1>" + result.name + "</h1>";
     heroDisplay.nameRight.innerHTML = "<h2>" + result.name + "</h2>";
