@@ -151,7 +151,9 @@ input:hover {
     width: calc(100% - 2em);
 }
 
-#rating {
+#rating h2 {
+    font-family: 'Bangers';
+    font-size: 2em;
     color: hotpink;
 }
 
@@ -372,7 +374,7 @@ color: yellowgreen;
 }
 
 #heroku {
-    display:block;
+    display:none;
     align-items: center;
     position: fixed;
     top: 2em;
