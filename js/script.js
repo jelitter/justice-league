@@ -1,29 +1,28 @@
-var config = {
+const config = {
     char_api: 'https://comicvine.gamespot.com/api/characters/?format=jsonp&json_callback=gotData&limit=1&api_key=494e2145fb4f91a34aba01d68fd14d413322eb28&filter=name:',
     random_char_api: 'https://comicvine.gamespot.com/api/characters/?format=jsonp&json_callback=gotData&limit=100&api_key=494e2145fb4f91a34aba01d68fd14d413322eb28&filter=offset:'
 }
 
 const ratingMessages = ["Not a fan","It's okay","Great work!","Fabulous Page!"];
-
 const heroesDC = ["superman", "batman", "wonder woman", "aquaman", "cyborg"];
+const secButtons = document.getElementById("sec-buttons");
+// const secButtons = document.getElementById("sec-buttons");
+const button1 = document.getElementById("button1");
+const button2 = document.getElementById("button2");
+const button3 = document.getElementById("button3");
+const pageRating = document.getElementById("page-rating");
+const bg = document.getElementById("bg");
+const bg2 = document.getElementById("bg2");
+const bgWrap = document.getElementById("bg-wrap");
+const bgWrap2 = document.getElementById("bg-wrap2");
+// const bgWrap2 = document.getElementById("bg-wrap2");
+const buttonDC = document.getElementById("buttonDC");
+const buttonRandom = document.getElementById("buttonRandom");
+const copyrightInfo = document.getElementById("copyright-info");
+const heroku = document.getElementById("heroku");
+const footer = document.getElementsByTagName("footer")[0];
 
-var secButtons = document.getElementById("sec-buttons");
-var secButtons = document.getElementById("sec-buttons");
-var button1 = document.getElementById("button1");
-var button2 = document.getElementById("button2");
-var button3 = document.getElementById("button3");
-var pageRating = document.getElementById("page-rating");
-var bg = document.getElementById("bg");
-var bg2 = document.getElementById("bg2");
-var bgWrap = document.getElementById("bg-wrap");
-var bgWrap2 = document.getElementById("bg-wrap2");
-var bgWrap2 = document.getElementById("bg-wrap2");
-var buttonDC = document.getElementById("buttonDC");
-var buttonRandom = document.getElementById("buttonRandom");
-var copyrightInfo = document.getElementById("copyright-info");
-var footer = document.getElementsByTagName("footer")[0];
-
-var heroDisplay = {
+const heroDisplay = {
     logo: document.getElementById("hero-logo"),
     logoContainer: document.getElementById("logo-container"),
     name: document.getElementById("hero-name"),
@@ -69,11 +68,12 @@ document.onload = (function () {
     console.log("DOM fully loaded.");
     button2.onclick = "location.href='http://www.google.com'";
     
-    getCopyrightData();
-    setSliderText();
-    newBackground(bg);
+    checkHeroku();        // Checking if page is being visitted online on Heroku for better experience.
+    getCopyrightData();  // Loading copyright data from copyright.html
+    setSliderText();     // Setting text under Rating slider
+    newBackground(bg);   // Setting both moving backgrounds
     newBackground(bg2);
-    setInterval(() => {
+    setInterval(() => {    // And Setting both moving backgrounds every 21 and 11 seconds
         newBackground(bg);
     }, 21000);
     setInterval(() => {
@@ -245,4 +245,8 @@ function getCopyrightData() {
             console.log("CopyRight data loaded.");
         }
     });
+}
+
+function checkHeroku() {
+    heroku.style.display = document.URL.includes("justice-league-cit.herokuapp.com") ? "none" : "grid";
 }
