@@ -18,9 +18,10 @@ var bg2 = document.getElementById("bg2");
 var bgWrap = document.getElementById("bg-wrap");
 var bgWrap2 = document.getElementById("bg-wrap2");
 var bgWrap2 = document.getElementById("bg-wrap2");
-
 var buttonDC = document.getElementById("buttonDC");
 var buttonRandom = document.getElementById("buttonRandom");
+var copyrightInfo = document.getElementById("copyright-info");
+var footer = document.getElementsByTagName("footer")[0];
 
 var heroDisplay = {
     logo: document.getElementById("hero-logo"),
@@ -68,6 +69,7 @@ document.onload = (function () {
     console.log("DOM fully loaded.");
     button2.onclick = "location.href='http://www.google.com'";
     
+    getCopyrightData();
     setSliderText();
     newBackground(bg);
     newBackground(bg2);
@@ -101,14 +103,14 @@ buttonDC.addEventListener("click", () => {
 });
 
 buttonRandom.addEventListener("click", () => {
-    // buttonRandom.setAttribute("disabled", "disabled");
     buttonRandom.disabled = true;
     buttonRandom.value = "Loading...";
     getSuperHero();
-    // buttonRandom.disabled = false;
 });
 
 pageRating.addEventListener("input", setSliderText);
+
+footer.addEventListener("click", toggleCopyrightInfo);
 
 function setSliderText() {
     let message = ratingMessages[pageRating.value - 1];
@@ -224,4 +226,23 @@ function render(result) {
     heroDisplay.birth.innerHTML = result.birth ? "<h3>Born: " + result.birth + "</h3>" : "";
     heroDisplay.desc.innerText = result.deck;
     heroDisplay.desc.innerHTML += "<br><br>(Source: <a href='https://comicvine.gamespot.com/api/documentation' target='_blank'>Comicvine</a>)";
+}
+
+function toggleCopyrightInfo() {
+    copyrightInfo.style.display = copyrightInfo.style.display == "block" ? "none" : "block";
+
+    // if (copyrightInfo.style.display == "block") {
+    //     copyrightInfo.innerHTML = copyrightData;
+    // }
+}
+
+function getCopyrightData() {
+    $.ajax({
+        url: "../copyright.html",
+        async: true,
+        success: function (data) {
+            copyrightInfo.innerHTML = data;
+            console.log("CopyRight data loaded.");
+        }
+    });
 }

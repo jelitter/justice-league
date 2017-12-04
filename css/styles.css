@@ -36,6 +36,11 @@ footer {
     z-index: 10;
 }
 
+footer:hover {
+    cursor:pointer;
+    background: rgba(255, 255, 255, 0.1);
+}
+
 nav {
     top: 0;
 }
@@ -335,4 +340,33 @@ input:hover {
     color: #888;
     text-shadow: none;
     cursor: not-allowed;
+}
+
+#copyright-info {
+    z-index: 5;
+    display: none;
+    bottom: 3em;
+    padding: 2em 3em;
+    left: calc(300px + 3em);
+    position: absolute;
+    border-radius: 4px;
+    height: auto;
+    width: auto;
+    background: rgba(0, 0, 0, 0.9);
+    color: #CCC;
+    border: solid 2px #AAA;
+}
+#copyright-info > ul >li {
+    font-size: 1.1em;
+    color: white;
+    font-weight: bold;
+}
+
+#copyright-info ul {
+    font-size: 1em !important;
+    color: pink;
+}
+
+#copyright-info a {
+color: yellowgreen;
 }
