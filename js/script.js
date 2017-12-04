@@ -138,19 +138,29 @@ function newBackground(element) {
 }
 
 function getSuperHero(name = "") {
-
     const url = name ? config.char_api + name : config.random_char_api + Math.floor(Math.random() * 1000);
-
     clearHero();
 
     if (name || (name == "" && randomHeros.length == 0)) {
-        fetchJsonp(url);
+
+        // Fetching superhero data from Comicvine API using JQuery
+        // Will be done just the 1st time pressing the 'Random Hero' button after loading the page, with 100 heros data.
+        $.ajax({
+            crossDomain: true,
+            type: "GET",
+            contentType: "application/json; charset=utf-8",
+            async: false,
+            url: url,
+            data: { symbol: 'ctsh' },
+            dataType: "jsonp",
+            jsonpCallback: 'gotData'
+        });
+
     } else {
         // We have randomHeros already cached
         do {
             result = randomHeros[Math.floor(Math.random() * randomHeros.length)];
-            // console.log("Random hero from cache:", result.name);
-        } while (result.image == null);
+        } while (result.image == null); // To avoid heros without pictures from this API
         render(result);
         buttonRandom.disabled = false;
         buttonRandom.value = "Random Hero (All Universes)!";
