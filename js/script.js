@@ -211,7 +211,7 @@ function render(result) {
 
     if (heroesDC.includes(result.name.toLowerCase())) {
         heroDisplay.logoContainer.style.display = "";
-        heroDisplay.logo.src = "img/logo/" + result.name + ".png";
+        heroDisplay.logo.src = "img/logo/" + result.name.toLowerCase() + ".png";
     } else {
         heroDisplay.logoContainer.style.display = "none";
     }
