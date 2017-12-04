@@ -67,7 +67,8 @@ document.onload = (function () {
     // On Page load, we change to a random background image every 10 seconds.
     console.log("DOM fully loaded.");
     button2.onclick = "location.href='http://www.google.com'";
-
+    
+    setSliderText();
     newBackground(bg);
     newBackground(bg2);
     setInterval(() => {
@@ -107,10 +108,12 @@ buttonRandom.addEventListener("click", () => {
     // buttonRandom.disabled = false;
 });
 
-pageRating.addEventListener("input", (event) => {
-    let message = ratingMessages[pageRating.value -1];
+pageRating.addEventListener("input", setSliderText);
+
+function setSliderText() {
+    let message = ratingMessages[pageRating.value - 1];
     rating.innerHTML = "<h2>" + message + "</h2>";
-});
+}
 
 function showSecButtons() {
     button2.classList = ["slideIn"];
