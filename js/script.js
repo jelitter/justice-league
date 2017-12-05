@@ -3,7 +3,7 @@ const config = {
     random_char_api: 'https://comicvine.gamespot.com/api/characters/?format=jsonp&json_callback=gotData&limit=100&api_key=494e2145fb4f91a34aba01d68fd14d413322eb28&filter=offset:'
 }
 
-const ratingMessages = ["Not a fan","It's okay","Great work!","Fabulous Page!"];
+const ratingMessages = ["Not a fan", "It's okay", "Great work!", "Fabulous Page!"];
 const heroesDC = ["superman", "batman", "wonder woman", "aquaman", "cyborg"];
 const secButtons = document.getElementById("sec-buttons");
 // const secButtons = document.getElementById("sec-buttons");
@@ -47,6 +47,8 @@ window.addEventListener("load", () => {
 });
 
 
+
+
 // On hero image load, we calculate aspect radio to make it fix the container.
 // Used part of: https://css-tricks.com/scaled-proportional-blocks-with-css-and-javascript/
 heroDisplay.img.addEventListener("load", function(event) {
@@ -63,17 +65,19 @@ heroDisplay.img.addEventListener("load", function(event) {
     heroDisplay.img.style.transform = "scale(" + scale + ")";
 });
 
-document.onload = (function () {
+
+
+document.onload = (function() {
     // On Page load, we change to a random background image every 10 seconds.
     console.log("DOM fully loaded.");
     button2.onclick = "location.href='http://www.google.com'";
-    
-    checkHeroku();        // Checking if page is being visitted online on Heroku for better experience.
-    getCopyrightData();  // Loading copyright data from copyright.html
-    setSliderText();     // Setting text under Rating slider
-    newBackground(bg);   // Setting both moving backgrounds
+
+    checkHeroku(); // Checking if page is being visitted online on Heroku for better experience.
+    getCopyrightData(); // Loading copyright data from copyright.html
+    setSliderText(); // Setting text under Rating slider
+    newBackground(bg); // Setting both moving backgrounds
     newBackground(bg2);
-    setInterval(() => {    // And Setting both moving backgrounds every 21 and 11 seconds
+    setInterval(() => { // And Setting both moving backgrounds every 21 and 11 seconds
         newBackground(bg);
     }, 21000);
     setInterval(() => {
@@ -240,7 +244,7 @@ function getCopyrightData() {
     $.ajax({
         url: "../copyright.html",
         async: true,
-        success: function (data) {
+        success: function(data) {
             copyrightInfo.innerHTML = data;
             console.log("CopyRight data loaded.");
         }

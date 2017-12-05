@@ -37,7 +37,7 @@ footer {
 }
 
 footer:hover {
-    cursor:pointer;
+    cursor: pointer;
     background: rgba(255, 255, 255, 0.1);
 }
 
@@ -74,7 +74,7 @@ footer {
 }
 
 #left-column-content {
-    display:grid;
+    display: grid;
     grid-gap: 1em;
     grid-template-rows: 1fr 1fr;
     height: 100%;
@@ -86,7 +86,8 @@ footer {
     grid-template-rows: 1fr 1fr;
 }
 
-#button2, #button3 {
+#button2,
+#button3 {
     color: white;
     text-shadow: 1px 1px 4px black;
     text-align: center;
@@ -98,16 +99,17 @@ footer {
 #button1 {
     position: relative;
     z-index: 1;
-    color:white;
+    color: white;
     text-shadow: 1px 1px 4px black;
     background: darkslateblue;
-    width: 100%; 
+    width: 100%;
     margin-bottom: 1em;
 }
 
 #button2 {
     background: limegreen;
 }
+
 #button3 {
     background: coral;
 }
@@ -163,15 +165,15 @@ input:hover {
 
 @media only screen and (min-width: 500px) {
     .container {
-        width: calc(100vw - 2em);        
+        width: calc(100vw - 2em);
     }
-}    
+}
 
 @media only screen and (min-width: 1200px) {
     .container {
-        width: calc(100vw - 4em);        
+        width: calc(100vw - 4em);
     }
-}    
+}
 
 @media only screen and (min-width: 1000px) {
     #hero-container {
@@ -197,7 +199,6 @@ input:hover {
     background: cornflowerblue;
     position: relative;
 }
-
 
 #buttonDC {
     font-family: 'Bangers';
@@ -284,6 +285,9 @@ input:hover {
 
 #hero-img-container {
     /* border: solid 2px lightpink; */
+    max-height: 100%;
+    /* margin-left: auto;
+    margin-right: auto; */
 }
 
 #hero-img {
@@ -292,12 +296,13 @@ input:hover {
     border-radius: 4px;
     transition: 0s;
     transform-origin: 0 0;
+    max-height: 100%;
 }
 
 #logo-container {
     height: 96px;
     width: 96px;
-    float:left;
+    float: left;
     animation: rotation2 5s infinite linear;
 }
 
@@ -305,7 +310,7 @@ input:hover {
     /* border:solid 2px yellowgreen; */
     height: 96px;
     width: 96px;
-    float:left;
+    float: left;
     animation: rotation 10s infinite linear;
 }
 
@@ -335,7 +340,6 @@ input:hover {
     text-shadow: 1px 1px 2px #000;
 }
 
-
 #buttonRandom:disabled,
 #buttonDC:disabled {
     background: #DDD;
@@ -358,7 +362,8 @@ input:hover {
     color: #CCC;
     border: solid 2px #AAA;
 }
-#copyright-info > ul >li {
+
+#copyright-info>ul>li {
     font-size: 1.1em;
     color: white;
     font-weight: bold;
@@ -370,17 +375,18 @@ input:hover {
 }
 
 #copyright-info a {
-color: yellowgreen;
+    color: yellowgreen;
 }
 
 #heroku {
-    display:none;
+    display: none;
+    padding: 1em;
     align-items: center;
     position: fixed;
     top: 2em;
     right: 1em;
-    height: 4em;
-    width: 200px;
+    height: auto;
+    width: auto;
     background: yellow;
     border: solid 2px black;
     color: black;
@@ -392,5 +398,5 @@ color: yellowgreen;
 #heroku a {
     height: 100%;
     width: 100%;
-    vertical-align: middle;
+    /* padding-top: 1em; */
 }
