@@ -82,6 +82,7 @@ footer {
 
 #button2,
 #button3 {
+    z-index: 2;
     color: white;
     text-shadow: 1px 1px 4px black;
     text-align: center;
@@ -223,7 +224,6 @@ input:hover {
         display: none;
     }
     #bg-wrap {
-        position: absolute;
         left: 0;
         top: 0;
         min-width: 100vw;
