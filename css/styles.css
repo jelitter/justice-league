@@ -380,7 +380,13 @@ input:hover {
 }
 
 #copyright-info a {
+    transition: 0s;
+    position: relative;
     color: yellowgreen;
+}
+
+a:hover {
+    text-shadow: 0px 0px 4px white;
 }
 
 #heroku {

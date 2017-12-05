@@ -247,6 +247,9 @@ function getCopyrightData() {
         success: function(data) {
             copyrightInfo.innerHTML = data;
             console.log("CopyRight data loaded.");
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown) {
+            copyrightInfo.innerHTML = "<p>Copyright couldn't be retrieved. Please see online version <a href='https://justice-league-cit.herokuapp.com/'>here</a>.</p>"
         }
     });
 }
