@@ -21,6 +21,7 @@ const buttonRandom = document.getElementById("buttonRandom");
 const copyrightInfo = document.getElementById("copyright-info");
 const heroku = document.getElementById("heroku");
 const footer = document.getElementsByTagName("footer")[0];
+const widi = document.getElementById("width-display");
 
 const heroDisplay = {
     logo: document.getElementById("hero-logo"),
@@ -44,9 +45,12 @@ var scale = 1;
 
 window.addEventListener("load", () => {
     console.log("Page fully loaded.");
+    widi.innerText = " - Width: " + window.innerWidth;
 });
 
-
+window.addEventListener("resize", () => {
+    widi.innerText = " - Width: " + window.innerWidth;
+});
 
 
 // On hero image load, we calculate aspect radio to make it fix the container.
