@@ -54,7 +54,6 @@ footer {
     color: white;
     text-shadow: 1px 1px 4px #000;
     position: relative;
-    min-width: 700px;
     margin: auto;
     align-self: center;
     min-height: calc(100vh - 6em);
@@ -164,62 +163,6 @@ input:hover {
     display: grid;
 }
 
-@media only screen and (max-width: 1200px) {
-    #hero-container {
-        grid-gap: 0.5em 1em;
-        grid-template-columns: 1fr;
-        grid-template-rows: 4em 4em 1fr 2fr;
-    }
-    .container {
-        width: calc(100vw - 2em);
-    }
-}
-
-@media only screen and (min-width: 1201px) {
-    #hero-container {
-        grid-gap: 0.5em 1em;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 4em 1fr auto;
-    }
-    .container {
-        width: calc(100vw - 4em);
-    }
-}
-
-@media only screen and (max-width: 801px) {
-    .container {
-        grid-template-columns: 1fr;
-    }
-}
-
-#buttonRandom {
-    font-family: 'Bangers';
-    color: white;
-    font-size: 2em;
-    text-shadow: 1px 1px 4px black;
-    background: cornflowerblue;
-    position: relative;
-    vertical-align: middle;
-    padding: 0;
-}
-
-#buttonDC {
-    font-family: 'Bangers';
-    color: white;
-    font-size: 2em;
-    text-shadow: 1px 1px 4px black;
-    background: darkmagenta;
-    position: relative;
-    vertical-align: middle;
-    padding: 0;
-}
-
-.normal-bg {
-    animation: none;
-    opacity: 0;
-    margin-left: 0px;
-}
-
 #bg2,
 #bg {
     position: relative;
@@ -261,6 +204,71 @@ input:hover {
 
 #bg-wrap {
     width: 100%;
+}
+
+@media only screen and (max-width: 801px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    #bg-wrap2 {
+        display: none;
+    }
+    #bg-wrap {
+        position: absolute;
+        top: 1em;
+        min-width: 100vw;
+        min-height: 100vh;
+    }
+}
+
+@media only screen and (max-width: 1200px) {
+    #hero-container {
+        grid-gap: 0.5em 1em;
+        grid-template-columns: 1fr;
+        grid-template-rows: 4em 4em 1fr 2fr;
+    }
+    .container {
+        width: calc(100vw - 2em);
+    }
+}
+
+@media only screen and (min-width: 1201px) {
+    #hero-container {
+        grid-gap: 0.5em 1em;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 4em 1fr auto;
+    }
+    .container {
+        width: calc(100vw - 4em);
+    }
+}
+
+#buttonRandom {
+    font-family: 'Bangers';
+    color: white;
+    font-size: 2em;
+    text-shadow: 1px 1px 4px black;
+    background: cornflowerblue;
+    position: relative;
+    vertical-align: middle;
+    padding: 0;
+}
+
+#buttonDC {
+    font-family: 'Bangers';
+    color: white;
+    font-size: 2em;
+    text-shadow: 1px 1px 4px black;
+    background: darkmagenta;
+    position: relative;
+    vertical-align: middle;
+    padding: 0;
+}
+
+.normal-bg {
+    animation: none;
+    opacity: 0;
+    margin-left: 0px;
 }
 
 #main-content {
